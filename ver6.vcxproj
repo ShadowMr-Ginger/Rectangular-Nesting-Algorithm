@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{A225C9D9-FF61-428B-800D-689254548772}</ProjectGuid>
+    <RootNamespace>ver4</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>ver6</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>.\CSV;.\DXFOperate;.\DXFOperate\src;.\head;.\source;.\resource;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="CSV\CSVread.cpp" />
+    <ClCompile Include="CSV\CSVwrite.cpp" />
+    <ClCompile Include="CSV\libcsv.c" />
+    <ClCompile Include="CSV\strerror.cpp" />
+    <ClCompile Include="DXFOperate\Layout.cpp" />
+    <ClCompile Include="DXFOperate\LayoutRecord.cpp" />
+    <ClCompile Include="DXFOperate\LayoutsToDXF.cpp" />
+    <ClCompile Include="DXFOperate\NestedPart.cpp" />
+    <ClCompile Include="DXFOperate\Part.cpp" />
+    <ClCompile Include="DXFOperate\Plate.cpp" />
+    <ClCompile Include="DXFOperate\src\dl_dxf.cpp" />
+    <ClCompile Include="DXFOperate\src\dl_writer_ascii.cpp" />
+    <ClCompile Include="DXFOperate\test_creationclass.cpp" />
+    <ClCompile Include="RectangleNestTask.cpp" />
+    <ClCompile Include="RectanglePart.cpp" />
+    <ClCompile Include="example.cpp" />
+    <ClCompile Include="source\any.c" />
+    <ClCompile Include="source\CoderTimeAPI.c" />
+    <ClCompile Include="source\coder_posix_time.c" />
+    <ClCompile Include="source\gapIsTooNarrow.c" />
+    <ClCompile Include="source\isRectangleOverlapped.c" />
+    <ClCompile Include="source\minOrMax.c" />
+    <ClCompile Include="source\nest_and_calc_Ver5.c" />
+    <ClCompile Include="source\Nest_and_reNest.c" />
+    <ClCompile Include="source\Nest_and_reNest_data.c" />
+    <ClCompile Include="source\Nest_and_reNest_emxAPI.c" />
+    <ClCompile Include="source\Nest_and_reNest_emxutil.c" />
+    <ClCompile Include="source\Nest_and_reNest_initialize.c" />
+    <ClCompile Include="source\Nest_and_reNest_terminate.c" />
+    <ClCompile Include="source\projectionLocate.c" />
+    <ClCompile Include="source\rectangleOverlapAreaCalc.c" />
+    <ClCompile Include="source\rtGetInf.c" />
+    <ClCompile Include="source\rtGetNaN.c" />
+    <ClCompile Include="source\rt_nonfinite.c" />
+    <ClCompile Include="source\sort.c" />
+    <ClCompile Include="source\tic.c" />
+    <ClCompile Include="source\tightnessCalc.c" />
+    <ClCompile Include="source\timeKeeper.c" />
+    <ClCompile Include="source\toc.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CSV\csv.h" />
+    <ClInclude Include="CSV\CSV.hpp" />
+    <ClInclude Include="CSV\strerror.hpp" />
+    <ClInclude Include="DXFOperate\Layout.h" />
+    <ClInclude Include="DXFOperate\LayoutRecord.h" />
+    <ClInclude Include="DXFOperate\LayoutsToDXF.h" />
+    <ClInclude Include="DXFOperate\NestedPart.h" />
+    <ClInclude Include="DXFOperate\Part.h" />
+    <ClInclude Include="DXFOperate\Plate.h" />
+    <ClInclude Include="DXFOperate\src\dl_attributes.h" />
+    <ClInclude Include="DXFOperate\src\dl_codes.h" />
+    <ClInclude Include="DXFOperate\src\dl_creationadapter.h" />
+    <ClInclude Include="DXFOperate\src\dl_creationinterface.h" />
+    <ClInclude Include="DXFOperate\src\dl_dxf.h" />
+    <ClInclude Include="DXFOperate\src\dl_entities.h" />
+    <ClInclude Include="DXFOperate\src\dl_exception.h" />
+    <ClInclude Include="DXFOperate\src\dl_extrusion.h" />
+    <ClInclude Include="DXFOperate\src\dl_global.h" />
+    <ClInclude Include="DXFOperate\src\dl_writer.h" />
+    <ClInclude Include="DXFOperate\src\dl_writer_ascii.h" />
+    <ClInclude Include="DXFOperate\test_creationclass.h" />
+    <ClInclude Include="head\any.h" />
+    <ClInclude Include="head\CoderTimeAPI.h" />
+    <ClInclude Include="head\coder_posix_time.h" />
+    <ClInclude Include="head\gapIsTooNarrow.h" />
+    <ClInclude Include="head\isRectangleOverlapped.h" />
+    <ClInclude Include="head\minOrMax.h" />
+    <ClInclude Include="head\nest_and_calc_Ver5.h" />
+    <ClInclude Include="head\Nest_and_reNest.h" />
+    <ClInclude Include="head\Nest_and_reNest_data.h" />
+    <ClInclude Include="head\Nest_and_reNest_emxAPI.h" />
+    <ClInclude Include="head\Nest_and_reNest_emxutil.h" />
+    <ClInclude Include="head\Nest_and_reNest_initialize.h" />
+    <ClInclude Include="head\Nest_and_reNest_terminate.h" />
+    <ClInclude Include="head\Nest_and_reNest_types.h" />
+    <ClInclude Include="head\projectionLocate.h" />
+    <ClInclude Include="head\rectangleOverlapAreaCalc.h" />
+    <ClInclude Include="head\rtGetInf.h" />
+    <ClInclude Include="head\rtGetNaN.h" />
+    <ClInclude Include="head\rtwtypes.h" />
+    <ClInclude Include="head\rt_nonfinite.h" />
+    <ClInclude Include="head\sort.h" />
+    <ClInclude Include="head\tic.h" />
+    <ClInclude Include="head\tightnessCalc.h" />
+    <ClInclude Include="head\timeKeeper.h" />
+    <ClInclude Include="head\toc.h" />
+    <ClInclude Include="iniparser.hpp" />
+    <ClInclude Include="RectangleNestTask.h" />
+    <ClInclude Include="RectanglePart.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

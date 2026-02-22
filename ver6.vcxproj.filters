@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\CSV_ReadWrite">
+      <UniqueIdentifier>{804e2e11-1cd7-4d44-8c63-7bd0fc6e0075}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\DXF_Write">
+      <UniqueIdentifier>{397fcc1e-0d6f-40b0-a366-cce63d6d4fe0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\CSV_ReadWrite">
+      <UniqueIdentifier>{d6533224-ba15-406d-ba1d-24f2461259a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\DXF_Write">
+      <UniqueIdentifier>{98128f04-1f73-4aa5-9202-2df4c4ba096a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\XS-XJQ-Algorithm">
+      <UniqueIdentifier>{76ef671e-ef29-49af-8a59-b5f5889e8712}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\XS-XJQ-Algorithm">
+      <UniqueIdentifier>{d243533b-baad-4b20-9c9d-375c09c8ec37}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DXFOperate\LayoutsToDXF.cpp">
+      <Filter>源文件\DXF_Write</Filter>
+    </ClCompile>
+    <ClCompile Include="DXFOperate\NestedPart.cpp">
+      <Filter>源文件\DXF_Write</Filter>
+    </ClCompile>
+    <ClCompile Include="DXFOperate\Part.cpp">
+      <Filter>源文件\DXF_Write</Filter>
+    </ClCompile>
+    <ClCompile Include="DXFOperate\Plate.cpp">
+      <Filter>源文件\DXF_Write</Filter>
+    </ClCompile>
+    <ClCompile Include="DXFOperate\test_creationclass.cpp">
+      <Filter>源文件\DXF_Write</Filter>
+    </ClCompile>
+    <ClCompile Include="DXFOperate\Layout.cpp">
+      <Filter>源文件\DXF_Write</Filter>
+    </ClCompile>
+    <ClCompile Include="DXFOperate\LayoutRecord.cpp">
+      <Filter>源文件\DXF_Write</Filter>
+    </ClCompile>
+    <ClCompile Include="DXFOperate\src\dl_dxf.cpp">
+      <Filter>源文件\DXF_Write</Filter>
+    </ClCompile>
+    <ClCompile Include="DXFOperate\src\dl_writer_ascii.cpp">
+      <Filter>源文件\DXF_Write</Filter>
+    </ClCompile>
+    <ClCompile Include="CSV\libcsv.c">
+      <Filter>头文件\CSV_ReadWrite</Filter>
+    </ClCompile>
+    <ClCompile Include="CSV\strerror.cpp">
+      <Filter>源文件\CSV_ReadWrite</Filter>
+    </ClCompile>
+    <ClCompile Include="CSV\CSVread.cpp">
+      <Filter>源文件\CSV_ReadWrite</Filter>
+    </ClCompile>
+    <ClCompile Include="CSV\CSVwrite.cpp">
+      <Filter>源文件\CSV_ReadWrite</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleNestTask.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RectanglePart.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="example.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gapIsTooNarrow.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\isRectangleOverlapped.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\minOrMax.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\nest_and_calc_Ver5.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Nest_and_reNest.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Nest_and_reNest_data.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Nest_and_reNest_emxAPI.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Nest_and_reNest_emxutil.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Nest_and_reNest_initialize.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Nest_and_reNest_terminate.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\projectionLocate.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\rectangleOverlapAreaCalc.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\rt_nonfinite.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\rtGetInf.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\rtGetNaN.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sort.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\tic.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\tightnessCalc.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\timeKeeper.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\toc.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\any.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\coder_posix_time.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CoderTimeAPI.c">
+      <Filter>源文件\XS-XJQ-Algorithm</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DXFOperate\Layout.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\LayoutRecord.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\NestedPart.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\Part.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\Plate.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\test_creationclass.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\src\dl_attributes.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\src\dl_codes.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\src\dl_creationadapter.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\src\dl_creationinterface.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\src\dl_dxf.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\src\dl_entities.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\src\dl_exception.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\src\dl_extrusion.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\src\dl_global.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\src\dl_writer.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\src\dl_writer_ascii.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="CSV\csv.h">
+      <Filter>头文件\CSV_ReadWrite</Filter>
+    </ClInclude>
+    <ClInclude Include="CSV\CSV.hpp">
+      <Filter>头文件\CSV_ReadWrite</Filter>
+    </ClInclude>
+    <ClInclude Include="CSV\strerror.hpp">
+      <Filter>头文件\CSV_ReadWrite</Filter>
+    </ClInclude>
+    <ClInclude Include="DXFOperate\LayoutsToDXF.h">
+      <Filter>头文件\DXF_Write</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleNestTask.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RectanglePart.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="iniparser.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="head\toc.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\timeKeeper.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\tightnessCalc.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\tic.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\sort.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\rtwtypes.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\rtGetNaN.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\rtGetInf.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\rt_nonfinite.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\rectangleOverlapAreaCalc.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\projectionLocate.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\Nest_and_reNest_types.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\Nest_and_reNest_terminate.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\Nest_and_reNest_initialize.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\Nest_and_reNest_emxutil.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\Nest_and_reNest_emxAPI.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\Nest_and_reNest_data.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\Nest_and_reNest.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\nest_and_calc_Ver5.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\minOrMax.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\isRectangleOverlapped.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\gapIsTooNarrow.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\CoderTimeAPI.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\coder_posix_time.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="head\any.h">
+      <Filter>头文件\XS-XJQ-Algorithm</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
