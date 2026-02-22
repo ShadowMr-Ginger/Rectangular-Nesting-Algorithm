@@ -1,0 +1,24 @@
+clc
+products=readmatrix("dataA1.csv");
+% partsSequence=[1;2;3;4];
+% partsDirection=[0;0;0;0];
+% partsSize=[100,100;100,100;100,100;100,100;];
+% plateLength_Width=[200,100];
+partsSequence=1:1:length(products(:,1));
+partsSequence=partsSequence';
+partsDirection=zeros(length(products(:,1)),1);
+partsSize=products(:,4:5);
+plateLength_Width=[2440,1220];
+% tic
+% [layouts,sheetDetails] = nest_and_calc(partsSequence,partsDirection,partsSize,plateLength_Width);
+% toc
+choose_material=[1,300,2440,1220];
+GA_Generation_Num=20;
+GA_Population_Size=20;
+GA_Mutation_Rate=0.15;
+GA_Proportion_Random_Individual=0.15;
+AlgorithmParameters(1)=GA_Generation_Num;
+AlgorithmParameters(2)=GA_Population_Size;
+GA_Mutation_Rate=AlgorithmParameters(3);
+GA_Proportion_Random_Individual=AlgorithmParameters(4);
+[layouts,sheetDetails]=GA(AlgorithmParameters,choose_material,products)

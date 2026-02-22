@@ -1,0 +1,81 @@
+function [sequence,direction]=Initial(Known_Data)
+%% 初始解生成函数
+% 输入参数：
+%     Known_Data 已知信息
+% 输出参数：
+%     allocation 产品-条带分配
+%     direction 产品摆放方向
+%     stripe_details  条带信息
+%     stripe_num   打包成条带的数量
+%% 
+WM=Known_Data.WM;
+products_infor=Known_Data.products;
+p_number=length(products_infor(:,1));
+direction=zeros(p_number,1);%摆向
+products_number=1:1:length(products_infor(:,1));
+products_number=products_number';
+products=[products_number,products_infor(:,3:5)];
+%长边宽边切换
+for i=1:length(products(:,1))
+    if products(i,3)<products(i,4)
+        a=products(i,4);
+        products(i,4)=products(i,3);
+        products(i,3)=a;
+        direction(i)=1;
+    end
+end
+
+%先将所有产品的长边长度进行排序
+[products1,Ndx1]=sortrows(products,4,"descend");
+[~,Ndx2]=sortrows(products1,3,"descend");
+%[序号，产品编号，长，宽]
+Ndx1=Ndx1(Ndx2);
+%direction=direction(Ndx1);
+
+
+%第一次长边分组
+%组数为group_num，可以调
+group_num=10;
+group_size=floor(length(products)/group_num);
+group_index=zeros(1,group_num);
+group_index(group_num)=length(products(:,1));
+for i=1:group_num-1
+    group_index(i)=group_size*i;
+end
+
+
+%个体初始化
+for i=1:length(group_index)
+    if i==1
+        Agroup=Ndx1(1:group_index(i),:);
+    else
+        Agroup=Ndx1(group_index(i-1):group_index(i),:);
+    end
+    if rand<0.9
+        if ~isempty(Agroup)
+            randlist=randperm(length(Agroup(:,1)));
+            Agroup=Agroup(randlist,:);
+            if i==1
+                Ndx1(1:group_index(i),:)=Agroup;
+            else
+                Ndx1(group_index(i-1):group_index(i),:)=Agroup;
+            end
+        end
+    end
+    %
+end
+sequence=Ndx1;
+direction=direction(Ndx1);
+for i=1:p_number
+    num_p=sequence(i);
+    if direction(num_p)==1
+        height=products_infor(num_p,4);
+    else
+        height=products_infor(num_p,5);
+    end
+    if height>WM
+        direction(num_p)=1-direction(num_p);
+    end
+end
+
+
