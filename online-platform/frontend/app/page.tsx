@@ -283,12 +283,20 @@ export default function Home() {
     }
   }
 
-  const sheetRemainingArea = useMemo(() => {
+  // 面积口径：「余料」仅限末板一刀切后右侧的整宽条带；其余未用区域（零件间隙、
+  // 满板边角条带）均为「边角料」。
+  const sheetAreas = useMemo(() => {
     if (!currentSheet || !plate) return null;
     const total = plate.plateLength * plate.plateWidth;
     const used = currentSheet.parts.reduce((acc, p) => acc + p.length * p.width, 0);
-    return total - used;
-  }, [currentSheet, plate]);
+    const isLast = currentPage === sheetCount;
+    const remainder =
+      isLast && currentSheet.surplusLength > 0
+        ? currentSheet.surplusLength * plate.plateWidth
+        : 0;
+    const offcut = Math.max(0, total - used - remainder);
+    return { offcut, remainder, isLast };
+  }, [currentSheet, plate, currentPage, sheetCount]);
 
   const fontScale = plate ? Math.min(plate.plateLength, plate.plateWidth) / 24 : 1;
 
@@ -633,6 +641,47 @@ export default function Home() {
                       height={plate.plateWidth}
                       className="plate-rect"
                     />
+                    {/* 仅最后一张板：高亮一刀切后右侧的余料区（整板宽） */}
+                    {currentPage === sheetCount && currentSheet.surplusLength > 0 && (
+                      <g>
+                        <defs>
+                          <pattern
+                            id="surplusHatch"
+                            patternUnits="userSpaceOnUse"
+                            width={fontScale}
+                            height={fontScale}
+                            patternTransform="rotate(45)"
+                          >
+                            <rect width={fontScale} height={fontScale} className="surplus-fill" />
+                            <line
+                              x1={0}
+                              y1={0}
+                              x2={0}
+                              y2={fontScale}
+                              className="surplus-hatch-line"
+                            />
+                          </pattern>
+                        </defs>
+                        <rect
+                          x={plate.plateLength - currentSheet.surplusLength}
+                          y={0}
+                          width={currentSheet.surplusLength}
+                          height={plate.plateWidth}
+                          fill="url(#surplusHatch)"
+                          className="surplus-rect"
+                        />
+                        {currentSheet.surplusLength > fontScale * 4 && (
+                          <text
+                            x={plate.plateLength - currentSheet.surplusLength / 2}
+                            y={plate.plateWidth / 2}
+                            fontSize={fontScale * 1.1}
+                            className="surplus-label"
+                          >
+                            {s.surplusLabel}
+                          </text>
+                        )}
+                      </g>
+                    )}
                     {currentSheet.parts.map((p) => (
                       <g key={p.partId}>
                         <rect
@@ -671,9 +720,17 @@ export default function Home() {
                   <strong>{currentSheet?.parts.length ?? 0}</strong>
                 </span>
                 <span>
+                  {s.sheetOffcutArea}
+                  <strong>{sheetAreas ? sheetAreas.offcut.toFixed(2) : "-"}</strong>
+                </span>
+                <span>
                   {s.sheetRemainingArea}
                   <strong>
-                    {sheetRemainingArea !== null ? sheetRemainingArea.toFixed(2) : "-"}
+                    {sheetAreas
+                      ? sheetAreas.isLast && sheetAreas.remainder > 0
+                        ? sheetAreas.remainder.toFixed(2)
+                        : "—"
+                      : "-"}
                   </strong>
                 </span>
               </div>

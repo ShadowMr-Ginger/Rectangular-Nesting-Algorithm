@@ -89,6 +89,12 @@ lastPlateUtilization = (total part area + surplusLength × plateWidth) / (plateL
 i.e. the one-cut remainder counts as effective material; only the gaps between
 parts count as waste.
 
+**Terminology:** only the full-width strip to the right of the one-cut line on the
+last plate is called the *remainder* (余料); every other unused region (part gaps,
+narrow strips along full plates) is an *offcut* (边角料). The viewer highlights the
+remainder on the last plate (hatched blue area) and shows the offcut area and the
+remainder area separately in the info bar.
+
 ### Part-identity fix *(2026-09-20)*
 
 The last plate is re-nested through a sub-call that reorders the parts internally,

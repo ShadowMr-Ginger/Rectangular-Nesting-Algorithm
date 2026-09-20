@@ -28,7 +28,12 @@ export async function exportSheetsZip(
     } else if (kind === "dxf") {
       zip.file(name, sheetToDxf(sheet, plateLength, plateWidth));
     } else {
-      const canvas = renderSheetToCanvas(sheet, plateLength, plateWidth);
+      const canvas = renderSheetToCanvas(
+        sheet,
+        plateLength,
+        plateWidth,
+        sheet.sheetNo === result.sheetCount
+      );
       const blob = await canvasToPngBlob(canvas);
       zip.file(name, blob);
     }

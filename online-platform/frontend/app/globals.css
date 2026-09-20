@@ -733,3 +733,27 @@ body {
   font-size: 13px;
   color: var(--text-muted);
 }
+
+/* ---------- 末板一刀切余料高亮 ---------- */
+.surplus-fill {
+  fill: #dbeafe;
+}
+
+.surplus-hatch-line {
+  stroke: #60a5fa;
+  stroke-width: 0.35;
+}
+
+.surplus-rect {
+  stroke: #3b82f6;
+  stroke-width: 0.3;
+  stroke-dasharray: 2 1.2;
+}
+
+.surplus-label {
+  fill: #1d4ed8;
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}

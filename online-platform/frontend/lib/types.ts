@@ -15,6 +15,8 @@ export interface SheetPart {
 export interface Sheet {
   sheetNo: number;
   utilization: number; // 0~100
+  surplusLength: number; // 末板为一刀切余料长度；其余板为边角条带长度
+  surplusWidth: number;
   parts: SheetPart[];
 }
 

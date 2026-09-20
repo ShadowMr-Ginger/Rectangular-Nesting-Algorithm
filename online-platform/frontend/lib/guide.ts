@@ -117,10 +117,14 @@ const zh: GuideContent = {
   lastPlateText:
     "最后一张原板往往用不满。算法先通过“末板重套料”尽量缩短该板的占用长度，" +
     "再对方案做紧凑重排，直接最小化最右端边界：在最右端零件的右缘竖直切一刀，" +
-    "切线右侧的整板料全部计为有效余料（灰色阴影区）。因此末板成材率按此口径单独计算。",
+    "切线右侧的整板料全部计为有效余料（图中蓝色斜线阴影区）。" +
+    "术语约定：只有末板一刀切右侧的这一条整宽板料称为“余料”；" +
+    "图中其余未用区域（零件间隙、满板两侧的窄条）统称“边角料”。" +
+    "因此末板成材率 =（零件总面积 + 余料面积）/ 板面积，余料计入有效材料。",
   viewerTitle: "翻页查看",
   viewerText:
-    "用了 N 张原板就有 N 页方案；“第 k / N 张”显示在方案图上方；支持按钮翻页与页码跳转。",
+    "用了 N 张原板就有 N 页方案；“第 k / N 张”显示在方案图上方；支持按钮翻页与页码跳转。" +
+    "末板方案图右侧以蓝色斜线阴影标出余料区；图下方信息栏同时显示该板的边角料面积与余料面积（余料仅末板有，其余板显示“—”）。",
   exportTitle: "批量导出",
   exportText:
     "导出结果为 zip 压缩包，内部每张板一个文件：CSV 含该板全部零件的坐标与尺寸；" +
@@ -194,10 +198,10 @@ const en: GuideContent = {
     "The thin blue frame is the plate boundary, the grey bands indicate the edge distance, and the orange rectangles are parts.",
   lastPlateTitle: "Last-plate remainder (one-cut rule)",
   lastPlateText:
-    "The last plate is usually not full. The algorithm first shrinks its occupied length by re-nesting, then compacts the layout to minimize the rightmost extent: a vertical cut is made just right of the rightmost part, and all plate material to the right of the cut line counts as usable remainder (grey shaded area). The last plate's utilization is computed with this rule.",
+    "The last plate is usually not full. The algorithm first shrinks its occupied length by re-nesting, then compacts the layout to minimize the rightmost extent: a vertical cut is made just right of the rightmost part, and all plate material to the right of the cut line counts as usable remainder (the hatched blue area in the diagram). Terminology: only this full-width strip on the right of the last plate is called the \"remainder\"; every other unused region (gaps between parts, narrow strips along full plates) is called \"offcut\". The last plate's utilization therefore equals (part area + remainder area) / plate area, counting the remainder as effective material.",
   viewerTitle: "Pagination",
   viewerText:
-    'N plates produce N pages. The "Sheet k / N" caption sits above the diagram. Button paging and direct page-number jumping are both supported.',
+    'N plates produce N pages. The "Sheet k / N" caption sits above the diagram. Button paging and direct page-number jumping are both supported. On the last plate the remainder area is hatched in blue on the right of the diagram; the info bar below each diagram shows both the offcut area and the remainder area (remainder exists only on the last plate; other plates show "—").',
   exportTitle: "Batch export",
   exportText:
     "The export is a zip archive with one file per plate: CSV contains every part's coordinates and dimensions on that plate; DXF opens in AutoCAD etc.; PNG is an image of the layout. File names include the plate number for cross-reference.",

@@ -58,6 +58,8 @@ export function normalizeRunResponse(data: unknown): NestingResult {
     return {
       sheetNo: num(so.sheetNo, i + 1),
       utilization: toPercent(so.utilization),
+      surplusLength: num(so.surplusLength, 0),
+      surplusWidth: num(so.surplusWidth, 0),
       parts,
     };
   });

@@ -87,6 +87,8 @@ export interface Strings {
   sheetUtilization: string;
   sheetPartCount: string;
   sheetRemainingArea: string;
+  sheetOffcutArea: string;
+  surplusLabel: string;
   prevPage: string;
   nextPage: string;
   jump: string;
@@ -172,6 +174,8 @@ const zh: Strings = {
   sheetUtilization: "该板成材率：",
   sheetPartCount: "零件数：",
   sheetRemainingArea: "余料面积：",
+  sheetOffcutArea: "边角料面积：",
+  surplusLabel: "余料",
   prevPage: "上一页",
   nextPage: "下一页",
   jump: "跳转",
@@ -263,6 +267,8 @@ const en: Strings = {
   sheetUtilization: "Sheet utilization: ",
   sheetPartCount: "Parts: ",
   sheetRemainingArea: "Remaining area: ",
+  sheetOffcutArea: "Offcut area: ",
+  surplusLabel: "Remainder",
   prevPage: "Prev",
   nextPage: "Next",
   jump: "Go",
