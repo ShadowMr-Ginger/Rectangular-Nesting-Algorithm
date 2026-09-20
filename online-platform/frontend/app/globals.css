@@ -757,3 +757,15 @@ body {
   dominant-baseline: middle;
   pointer-events: none;
 }
+
+.btn-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.btn-github svg {
+  display: block;
+}
