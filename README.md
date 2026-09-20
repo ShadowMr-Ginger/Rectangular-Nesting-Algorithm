@@ -79,7 +79,15 @@ utilization = 1 − lastPlateSurplusLength × plateWidth / (numPlates × plateLe
 ```
 
 i.e. all full plates count as fully used and only the last plate's surplus (valued
-by the one-cut rule) is deducted.
+by the one-cut rule) is deducted. The last plate's own utilization (shown in the
+per-sheet table and viewer) is computed by the same one-cut rule:
+
+```
+lastPlateUtilization = (total part area + surplusLength × plateWidth) / (plateLength × plateWidth)
+```
+
+i.e. the one-cut remainder counts as effective material; only the gaps between
+parts count as waste.
 
 ### Part-identity fix *(2026-09-20)*
 

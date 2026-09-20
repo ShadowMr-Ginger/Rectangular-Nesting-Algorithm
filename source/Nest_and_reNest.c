@@ -396,15 +396,6 @@ void Nest_and_reNest(const emxArray_real_T *partsSize,
               t++;
             }
             *lastPlateSurplusLength = newSurplus;
-            /* 末板 sheetDetails 改按一刀切口径：余料宽为整板宽 */
-            sheetDetails_data[(int)*num_plate - 1] = *num_plate;
-            sheetDetails_data[((int)*num_plate + sheetDetails->size[0]) - 1] =
-                *lastPlateSurplusLength;
-            sheetDetails_data[((int)*num_plate + sheetDetails->size[0] * 2) -
-                              1] = plateLength_Width[1];
-            dd = 1.0 - *lastPlateSurplusLength / plateLength_Width[0];
-            sheetDetails_data[((int)*num_plate + sheetDetails->size[0] * 3) -
-                              1] = dd > 0.0 ? dd : 0.0;
           }
         }
       }
@@ -415,6 +406,26 @@ void Nest_and_reNest(const emxArray_real_T *partsSize,
       free(rlOL);
       free(rlOW);
     }
+  }
+  /*  末板 sheetDetails 统一按一刀切口径重写（无论 skyline 是否触发）：
+   *  余料宽为整板宽；该板成材率 =（零件总面积 + 一刀切余料面积）/ 板面积，
+   *  即余料计入有效材料，零件间隙计为损耗。 */
+  {
+    double partArea = 0.0;
+    double r, dd;
+    for (r = rowStart + 1.0; r <= pointer_end; r += 1.0) {
+      partArea += layouts_data[((int)r + layouts->size[0] * 4) - 1] *
+                  layouts_data[((int)r + layouts->size[0] * 5) - 1];
+    }
+    dd = (partArea + *lastPlateSurplusLength * plateLength_Width[1]) /
+         (plateLength_Width[0] * plateLength_Width[1]);
+    sheetDetails_data[(int)*num_plate - 1] = *num_plate;
+    sheetDetails_data[((int)*num_plate + sheetDetails->size[0]) - 1] =
+        *lastPlateSurplusLength;
+    sheetDetails_data[((int)*num_plate + sheetDetails->size[0] * 2) - 1] =
+        plateLength_Width[1];
+    sheetDetails_data[((int)*num_plate + sheetDetails->size[0] * 3) - 1] =
+        dd > 1.0 ? 1.0 : (dd > 0.0 ? dd : 0.0);
   }
   toc();
   *utilization =

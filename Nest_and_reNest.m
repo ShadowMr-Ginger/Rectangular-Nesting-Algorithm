@@ -110,8 +110,10 @@ if nLast>0
     end
 end
 sheetDetails_last(1,1)=num_plate;
-sheetDetails_last(1,2)=sheetDetails_last(1,2)+lastPlateSurplusLength;
-sheetDetails_last(1,4)=sheetDetails_last(1,4)*(plateLength_Width(1)-lastPlateSurplusLength)/plateLength_Width(1)+lastPlateSurplusLength/plateLength_Width(1);
+lastArea=sum(layouts(row0:pointer_end,5).*layouts(row0:pointer_end,6));
+sheetDetails_last(1,2)=lastPlateSurplusLength;
+% 末板成材率按一刀切口径：余料计入有效材料
+sheetDetails_last(1,4)=(lastArea+lastPlateSurplusLength*plateLength_Width(2))/(plateLength_Width(1)*plateLength_Width(2));
 sheetDetails(num_plate,:)=sheetDetails_last(1,:);
 plateLength_Width(1)=plateLength_Width(1)/245*244;
 utilization=(utilization*plateLength_Width(1)*plateLength_Width(2)*num_plate+lastPlateSurplusLength*plateLength_Width(2))/(plateLength_Width(1)*plateLength_Width(2)*num_plate);

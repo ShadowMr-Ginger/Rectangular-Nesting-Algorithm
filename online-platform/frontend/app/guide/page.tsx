@@ -60,7 +60,12 @@ function LastPlateDiagram() {
 }
 
 export default function GuidePage() {
-  const [locale, setLocaleState] = useState<Locale>(initialLocale);
+  // i18n：首帧固定渲染中文（与服务端 SSR 输出一致，避免 hydration 文本不匹配）；
+  // 挂载后再按 localStorage（若有手动选择）/浏览器语言切换。
+  const [locale, setLocaleState] = useState<Locale>("zh");
+  useEffect(() => {
+    setLocaleState(initialLocale());
+  }, []);
   const setLocale = (l: Locale) => {
     saveLocale(l);
     setLocaleState(l);
