@@ -1,0 +1,25 @@
+# Build outputs
+bin/
+obj/
+x64/
+.next/
+out/
+node_modules/
+
+# Compiled binaries & native artifacts
+*.exe
+*.dll
+*.obj
+*.lib
+*.pdb
+*.user
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.suo
+.vs/
+
+# Logs & temp
+*.log
+.tmp-*/

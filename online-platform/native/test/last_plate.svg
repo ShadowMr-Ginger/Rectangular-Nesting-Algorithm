@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="440" viewBox="0 0 100 50">
+<rect x="0" y="0" width="100" height="50" fill="white" stroke="black"/>
+<rect x="0.2" y="14.562" width="1.11671" height="33.7529" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="2.65507" y="12.762" width="1.03996" height="33.9553" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="6.14527" y="13.0929" width="1.01135" height="33.6244" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="7.25662" y="13.1511" width="1.01009" height="33.5662" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="8.36671" y="13.2742" width="1.01404" height="33.4432" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="3.79504" y="13.378" width="1.02669" height="33.3394" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="1.41671" y="16.3646" width="1.13836" height="31.9504" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="12.0753" y="14.8833" width="1.00038" height="31.834" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="10.9393" y="15.5922" width="1.03599" height="31.1252" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="4.92172" y="16.1204" width="1.12355" height="30.5969" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="0.2" y="48.415" width="29.5939" height="1.38503" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="15.9153" y="17.136" width="1.03525" height="29.5814" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="18.4705" y="17.0316" width="1.01677" height="29.6857" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="9.48075" y="21.2394" width="1.35852" height="25.478" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="2.65507" y="46.8174" width="24.5633" height="1.49761" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="14.5252" y="22.2245" width="1.29007" height="24.4928" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="13.1756" y="21.4621" width="1.24959" height="25.2552" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="19.5873" y="1.46987" width="1.08004" height="25.2766" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="22.2632" y="21.3374" width="1.005" height="25.3799" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="21.137" y="20.9014" width="1.02625" height="25.816" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="17.0506" y="23.1894" width="1.31992" height="23.5279" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="14.5252" y="0.291286" width="1.09282" height="21.8332" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="17.0506" y="1.59154" width="1.1084" height="21.4979" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="23.3682" y="24.7378" width="1.00001" height="21.9796" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="19.5873" y="26.8465" width="1.44971" height="19.8709" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="13.1756" y="1.33534" width="1.11795" height="20.0268" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="9.48075" y="0.656689" width="1.15595" height="20.4827" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="24.4682" y="2.16152" width="1.0389" height="18.4464" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="21.137" y="2.35746" width="1.00035" height="18.4439" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="24.4682" y="33.6824" width="1.56672" height="13.035" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="24.4682" y="20.7079" width="1.56096" height="12.8744" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="0.2" y="1.19603" width="1.08141" height="13.266" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="1.41671" y="2.97753" width="1.00896" height="13.287" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="3.79504" y="0.252673" width="1.00003" height="13.0253" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="4.92172" y="3.1459" width="1.01075" height="12.8745" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<rect x="6.14527" y="0.449023" width="1.00217" height="12.5439" fill="#dbeafe" stroke="#2563eb" stroke-width="0.2"/>
+<line x1="29.7939" y1="0" x2="29.7939" y2="50" stroke="red" stroke-width="0.3"/>
+</svg>

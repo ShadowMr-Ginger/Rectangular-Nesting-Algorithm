@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Backend</RootNamespace>
+    <AssemblyName>backend</AssemblyName>
+  </PropertyGroup>
+
+  <!--
+    nesting.dll 由并行任务构建，输出到 online-platform/native/x64/Release/。
+    存在时作为内容拷贝到输出目录；尚不存在时仅告警，保证后端可以先编译。
+  -->
+  <ItemGroup>
+    <Content Include="..\native\x64\Release\nesting.dll"
+             Condition="Exists('..\native\x64\Release\nesting.dll')">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Target Name="WarnIfNestingDllMissing" AfterTargets="Build">
+    <Warning Condition="!Exists('..\native\x64\Release\nesting.dll')"
+             Text="nesting.dll 尚未构建（预期路径 ..\native\x64\Release\nesting.dll）。运行 /api/nesting/run 将返回 503。" />
+  </Target>
+
+</Project>

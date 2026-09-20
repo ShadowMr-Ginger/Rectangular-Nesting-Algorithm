@@ -1,0 +1,5 @@
+Ver6 算法版本归档（归档日期：2026-09-20）
+
+内容：矩形件套料算法最新版（Nest_and_reNest 顶层入口 = nest_and_calc_Ver5 单次排样 + 末板重套料）。
+来源：仓库根目录的 source/、head/、CSV/、DXFOperate/、RectangleNestTask、example.cpp、ver6.sln 等。
+此目录为冻结快照，仅供保存；在线运算平台的开发在仓库根目录及 online-platform/ 中进行，不改动本目录。

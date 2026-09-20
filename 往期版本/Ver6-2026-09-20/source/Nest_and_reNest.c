@@ -11,7 +11,6 @@
 #include "Nest_and_reNest_emxutil.h"
 #include "Nest_and_reNest_initialize.h"
 #include "Nest_and_reNest_types.h"
-#include "last_plate_refine.h"
 #include "nest_and_calc_Ver5.h"
 #include "rt_nonfinite.h"
 #include "tic.h"
@@ -145,17 +144,8 @@ void Nest_and_reNest(const emxArray_real_T *partsSize,
   }
   pointer = pointer_end;
   pointer_reNest = 0U;
-  /*  同时保存末板零件的原始 col1（真实零件编号），重套料合并后写回 */
-  double *lastPartIds = NULL;
-  if (pointer_end > 0.0) {
-    lastPartIds = (double *)malloc((unsigned int)pointer_end * sizeof(double));
-  }
   while (layouts_data[(int)pointer - 1] == *num_plate) {
     pointer_reNest++;
-    if (lastPartIds != NULL) {
-      lastPartIds[pointer_reNest - 1] =
-          layouts_data[((int)pointer + layouts->size[0]) - 1];
-    }
     reNestparts_Size_data[(int)pointer_reNest - 1] =
         layouts_data[((int)pointer + layouts->size[0] * 4) - 1];
     reNestparts_Size_data[((int)pointer_reNest + reNestparts_Size->size[0]) -
@@ -163,9 +153,6 @@ void Nest_and_reNest(const emxArray_real_T *partsSize,
         layouts_data[((int)pointer + layouts->size[0] * 5) - 1];
     pointer--;
   }
-  /*  此时 pointer 指向末板首行的上一行，保存下来供后面写回使用
-   * （merge 循环会推进 pointer，不能再复用它） */
-  double rowStart = pointer;
   /* 开始压缩最后一张板的大小 */
   plateLength_Width_last[0] = plateLength_Width[0];
   plateLength_Width_last[1] = plateLength_Width[1];
@@ -306,20 +293,6 @@ void Nest_and_reNest(const emxArray_real_T *partsSize,
     }
   }
   emxFree_real_T(&layouts_last);
-  /*  写回末板零件的真实编号（col1）。重套料子问题内部会重新排序零件，
-   *  合并后每行 col1 是该零件在收集顺序（末板自下而上）中的局部序号 q，
-   *  真实编号 = lastPartIds[q-1]，必须经此间接映射，不能按行顺序直接写。 */
-  if (lastPartIds != NULL) {
-    double r;
-    int nL = (int)(pointer_end - rowStart);
-    for (r = rowStart + 1.0; r <= pointer_end; r += 1.0) {
-      int q = (int)layouts_data[((int)r + layouts->size[0]) - 1];
-      if (q >= 1 && q <= nL) {
-        layouts_data[((int)r + layouts->size[0]) - 1] = lastPartIds[q - 1];
-      }
-    }
-    free(lastPartIds);
-  }
   partIsNested_data[0] = *num_plate;
   partIsNested_data[sheetDetails_last->size[0]] += *lastPlateSurplusLength;
   partIsNested_data[sheetDetails_last->size[0] * 3] =
@@ -334,88 +307,6 @@ void Nest_and_reNest(const emxArray_real_T *partsSize,
       partIsNested_data[sheetDetails_last->size[0] * 2];
   sheetDetails_data[((int)*num_plate + sheetDetails->size[0] * 3) - 1] =
       partIsNested_data[sheetDetails_last->size[0] * 3];
-  /*  末板 skyline 再压缩（后处理）：
-   *  重套料只把板长逐步缩短，板内仍是“向右延伸”的排布，一刀切余料
-   *  （最右端竖直切一刀，右侧板料全部计为有效余料）没有被最大化。
-   *  这里对末板零件集合做 skyline 紧凑重排，直接最小化最右端边界；
-   *  只在严格更优时写回，主套料流程与耗时不受影响。 */
-  {
-    int nLast = (int)(pointer_end - rowStart);
-    if (nLast > 0) {
-      double *rlLen = (double *)malloc((unsigned int)nLast * sizeof(double));
-      double *rlWid = (double *)malloc((unsigned int)nLast * sizeof(double));
-      double *rlX = (double *)malloc((unsigned int)nLast * sizeof(double));
-      double *rlY = (double *)malloc((unsigned int)nLast * sizeof(double));
-      double *rlOL = (double *)malloc((unsigned int)nLast * sizeof(double));
-      double *rlOW = (double *)malloc((unsigned int)nLast * sizeof(double));
-      if (rlLen != NULL && rlWid != NULL && rlX != NULL && rlY != NULL &&
-          rlOL != NULL && rlOW != NULL) {
-        double mrg = interval_distance_plate;
-        double gp = interval_distance_parts;
-        double useL, useW;
-        double prevRight = 0.0, newRight = 0.0, newSurplus, cutSurplus0;
-        double r, dd;
-        int t;
-        if (mrg > gp) {
-          useL = plateLength_Width_last[0] - 2.0 * mrg + gp;
-          useW = plateLength_Width_last[1] - 2.0 * mrg + gp;
-        } else {
-          useL = plateLength_Width_last[0] - mrg;
-          useW = plateLength_Width_last[1] - mrg;
-        }
-        t = 0;
-        for (r = pointer_end - (double)nLast + 1.0; r <= pointer_end; r += 1.0) {
-          rlLen[t] = layouts_data[((int)r + layouts->size[0] * 4) - 1];
-          rlWid[t] = layouts_data[((int)r + layouts->size[0] * 5) - 1];
-          dd = layouts_data[((int)r + layouts->size[0] * 2) - 1] + rlLen[t];
-          if (dd > prevRight) {
-            prevRight = dd;
-          }
-          t++;
-        }
-        if (refine_last_plate(rlLen, rlWid, nLast, gp, useL, useW, rlX, rlY,
-                              rlOL, rlOW) >= 0.0) {
-          for (t = 0; t < nLast; t++) {
-            dd = (rlX[t] + mrg) + rlOL[t];
-            if (dd > newRight) {
-              newRight = dd;
-            }
-          }
-          newSurplus = plateLength_Width[0] - newRight;
-          cutSurplus0 = plateLength_Width[0] - prevRight;
-          if (newSurplus > *lastPlateSurplusLength + 1e-6 &&
-              newSurplus > cutSurplus0 + 1e-6) {
-            t = 0;
-            for (r = pointer_end - (double)nLast + 1.0; r <= pointer_end; r += 1.0) {
-              layouts_data[((int)r + layouts->size[0] * 2) - 1] =
-                  rlX[t] + mrg;
-              layouts_data[((int)r + layouts->size[0] * 3) - 1] =
-                  rlY[t] + mrg;
-              layouts_data[((int)r + layouts->size[0] * 4) - 1] = rlOL[t];
-              layouts_data[((int)r + layouts->size[0] * 5) - 1] = rlOW[t];
-              t++;
-            }
-            *lastPlateSurplusLength = newSurplus;
-            /* 末板 sheetDetails 改按一刀切口径：余料宽为整板宽 */
-            sheetDetails_data[(int)*num_plate - 1] = *num_plate;
-            sheetDetails_data[((int)*num_plate + sheetDetails->size[0]) - 1] =
-                *lastPlateSurplusLength;
-            sheetDetails_data[((int)*num_plate + sheetDetails->size[0] * 2) -
-                              1] = plateLength_Width[1];
-            dd = 1.0 - *lastPlateSurplusLength / plateLength_Width[0];
-            sheetDetails_data[((int)*num_plate + sheetDetails->size[0] * 3) -
-                              1] = dd > 0.0 ? dd : 0.0;
-          }
-        }
-      }
-      free(rlLen);
-      free(rlWid);
-      free(rlX);
-      free(rlY);
-      free(rlOL);
-      free(rlOW);
-    }
-  }
   toc();
   *utilization =
       (*utilization * plateLength_Width[0] * plateLength_Width[1] * *num_plate +
